@@ -75,7 +75,7 @@ h1 {
 }
 
 .recipe-details img{
-    max-width: 3300px;
+    max-width: 300px;
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
