@@ -56,7 +56,7 @@ h1 {
 }
 
 .recipe-card {
-    border: 1px;
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
