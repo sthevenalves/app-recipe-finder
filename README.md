@@ -4,7 +4,7 @@
  ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
  ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
 
- <h3>Clique para Visualizar o Projeto: https://sthevenalves.github.io//</h3>
+ <h3>Clique para Visualizar o Projeto: https://sthevenalves.github.io/app-recipe-finder/</h3>
 
   <ul>
     <li><a href="#desc">Descrição</a> 
