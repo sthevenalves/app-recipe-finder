@@ -14,11 +14,17 @@ form.addEventListener('submit', function (event) {
 });
 
 async function searchRecipes(ingredient) {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-    const data = await response.json();
-    console.log(data);
+    recipeList.innerHTML = `<p>Carregando Receitas...</p>`
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+        const data = await response.json();
+        console.log(data);
 
-    showRecipes(data.meals);
+        showRecipes(data.meals);
+    } catch (err) {
+        recipeList.innerHTML = `<p>Nenhuma Receita Encontrada</p>`
+    }
+
 }
 
 function showRecipes(recipes) {
@@ -33,22 +39,24 @@ function showRecipes(recipes) {
 }
 
 async function getRecipesDetails(id) {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-    const data = await response.json();
-    const recipe = data.meals[0];
+    recipeDetails.innerHTML = `<p>Carregando Receita...</p>`
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+        const data = await response.json();
+        const recipe = data.meals[0];
 
-    let ingredients = '';
+        let ingredients = '';
 
-    for (let i = 1; i <= 20; i++) {
-        if (recipe[`strIngredient${i}`]) {
-            ingredients += `<li>${recipe[`strIngredient${i}`]} - 
+        for (let i = 1; i <= 20; i++) {
+            if (recipe[`strIngredient${i}`]) {
+                ingredients += `<li>${recipe[`strIngredient${i}`]} - 
                             ${recipe[`strMeasure${i}`]}</li>`;
-        } else {
-            break;
+            } else {
+                break;
+            }
         }
-    }
 
-    recipeDetails.innerHTML = `
+        recipeDetails.innerHTML = `
         <h2>${recipe.strMeal}</h2>
         <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" class="recipe-img">
         <h3>Categoria: ${recipe.strCategory}</h3>
@@ -60,4 +68,8 @@ async function getRecipesDetails(id) {
         <p>Tags: ${recipe.strTags}</p>
         <p>Video: <a href="${recipe.strYoutube}" target="_blank">Assista no Youtube</a></p>
     `;
+    } catch(err) {
+        
+    }
+
 }
