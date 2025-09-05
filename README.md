@@ -15,6 +15,7 @@
 
  <h2 id="desc">Descrição</h2>
 <p>Projeto com Busca de todas as receitas encontradas a partir de um ingrediente pesquisado.  
+<p>Os ingredientes devem ser buscados em inglês. Se você deseja Bife, digite "Beef"</p>
 
 
 <h2 id="proj">Projeto</h2>
